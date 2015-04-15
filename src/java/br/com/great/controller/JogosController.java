@@ -63,7 +63,7 @@ public class JogosController {
      * @return boolean true se envou com sucesso
      */
     public boolean enviarMensagem(String jogo_id, String mensagem, String jogador_id){
-        ArrayList<Jogador> listJogador = new JogadoresDAO().getDeviceRegsID(Integer.valueOf(jogo_id));
+        ArrayList<Jogador> listJogador = new JogadoresDAO().getDeviceRegsIDJogo(Integer.valueOf(jogo_id));
         List<String> regIdList = new ArrayList<String>();
         String user = "user";
         for (Jogador jogador : listJogador) {

@@ -15,6 +15,7 @@ import java.util.logging.Logger;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
@@ -116,6 +117,15 @@ public class JogadorResource {
     @Produces("application/json")
     public String registroDevice(@QueryParam("jogador_id") String jogador_id, @QueryParam("device_id") String device_id) {
         return (new JogadoresController().registroDevice(jogador_id, device_id));
+    }
+    
+    /**
+     * PUT method for updating or creating an instance of JogoResource
+     * @param content representation for the resource
+     */
+    @PUT
+    @Consumes("application/json")
+    public void putJson(String content) {
     }
 
 }

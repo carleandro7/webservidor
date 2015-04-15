@@ -151,5 +151,7 @@ public class JogoResource {
         String[][] value = {{jogopai_id,jogador_id, nomefecticio}} ;
         return ServidorJogo.getInstance().acao(JOGO_NEWJOGO,0, new OperacoesJSON().toJSONArray(key, value)).toString();
     }
+    
+    
 
 }

@@ -112,16 +112,11 @@ public class EstadoGrupo {
     }
     private JSONArray mecanicaAtualGrupo(JSONArray json) {
         JSONArray jsonResult = new JSONArray();
-        if(this.tipoOrdem==1){
-                //se acao for um get na missao atual
-                int missaoAtual = getMissaoAtual();
-                if(missaoAtual != -1){
-                    //jsonResult.put(listMissoes.get(missaoAtual).getMissaoJsonArray());
-                    jsonResult.put(listMissoes.get(missaoAtual).getMecanicaJsonArray());
-                }
-                return jsonResult;
-        }else if(this.tipoOrdem==0){
-            
+        //se acao for um get na missao atual
+        int missaoAtual = getMissaoAtual();
+        if(missaoAtual != -1){
+            //jsonResult.put(listMissoes.get(missaoAtual).getMissaoJsonArray());
+            jsonResult.put(listMissoes.get(missaoAtual).getMecanicaJsonArray());
         }
         return jsonResult;
     }
@@ -130,8 +125,6 @@ public class EstadoGrupo {
         JSONArray jsonResult = new JSONArray();
         String valueResult="";
         Map<String, String> params = new HashMap<String, String>();
-        //Se o jogo for do tipo ordenado
-        if(this.tipoOrdem==1){
                 //se acao for um get na missao atual
                 int missaoAtual = getMissaoAtual();
                 if(missaoAtual != -1){
@@ -168,10 +161,6 @@ public class EstadoGrupo {
                 String[][] value = {{valueResult}};
                 String[][] key = {{"result"}};
                 jsonResult = new OperacoesJSON().toJSONArray(key, value);
-                return jsonResult;
-        }else{
-            
-        }
         return jsonResult;
     }
     private JSONArray setJogadorGrupo(int jogador_id) {
@@ -263,8 +252,8 @@ public class EstadoGrupo {
               listJogadores.get(i).getJogador().setLatitude(Double.valueOf(new OperacoesJSON().toJSONObject(json, 0, "latitude")));
               listJogadores.get(i).getJogador().setLongitude(Double.valueOf(new OperacoesJSON().toJSONObject(json, 0, "longitude")));
               listJogadores.get(i).setAtualizarLocalizacao(1);
-              System.err.println("teste:"+listJogadores.get(i).getJogador().getLongitude());
-              System.err.println("teste:"+listJogadores.get(i).getJogador().getLatitude());
+              System.err.println("teste longitude:"+listJogadores.get(i).getJogador().getLongitude());
+              System.err.println("teste latitude:"+listJogadores.get(i).getJogador().getLatitude());
               result = true;
               break;
           }
